@@ -19,24 +19,22 @@ public class ProjectController {
         String sql = "INSERT INTO projects (name, "
                 + "description, "
                 + "createdAt, "
-                + "updateAt"
                 + "VALUES(?, ?, ?,?) ";
         
         Connection connection = null;
         PreparedStatement statement = null;
         
         try{
-                //Estabelece uma conex„o com o banco
+                //Estabelece uma conex√£o com o banco
                 connection = ConnectorFactory.GetConnection();
-                //Cria um PreparedStatement que È uma classe usada p/ executar a query
+                //Cria um PreparedStatement que √© uma classe usada p/ executar a query
                 statement = connection.prepareStatement(sql);
                 //Setando os valores
                 statement.setString(1, project.getName());
                 statement.setString(2, project.getDescription());
                 statement.setDate(3, new Date(project.getCreatedAt().getTime()));
-                statement.setDate(4, new Date(project.getUpdateAt().getTime()));
                 
-                //Executar sql para inserÁ„o de dados
+                //Executar sql para inser√ß√£o de dados
                 statement.execute();
                    }catch (SQLException ex){
                        throw new RuntimeException ("ERRO AO SALVAR O PROJETO", ex);
@@ -58,9 +56,9 @@ public class ProjectController {
         
         
         try{
-            //Estabelece uma conex„o com o banco
+            //Estabelece uma conex√£o com o banco
                 connection = ConnectorFactory.GetConnection();
-                //Cria um PreparedStatement que È uma classe usada p/ executar a query
+                //Cria um PreparedStatement que √© uma classe usada p/ executar a query
                 statement = connection.prepareStatement(sql);
                 
                 //Setando os valores
@@ -70,7 +68,7 @@ public class ProjectController {
                 statement.setDate(4, new Date(project.getUpdateAt().getTime()));
                 statement.setInt(5, project.getID());
                 
-                //Executar sql para inserÁ„o de dados
+                //Executar sql para inser√ß√£o de dados
                 statement.execute();
         }catch (SQLException ex){
             throw new RuntimeException ("ERRO AO ATUALIZAR O PROJETO", ex);
@@ -91,9 +89,9 @@ public class ProjectController {
         ResultSet resultSet = null;
         
         try{
-        //Estabelece uma conex„o com o banco
+        //Estabelece uma conex√£o com o banco
         connection = ConnectorFactory.GetConnection();
-        //Cria um PreparedStatement que È uma classe usada p/ executar a query
+        //Cria um PreparedStatement que √© uma classe usada p/ executar a query
         statement = connection.prepareStatement(sql);
         resultSet = statement.executeQuery();
         
